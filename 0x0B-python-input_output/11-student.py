@@ -10,6 +10,19 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """Method to_json"""
-        return self.__dict__
+        requested = {}
+        if attrs is None:
+            return self.__dict__
+        for i in attrs:
+            if i in self.__dict__.keys():
+                requested[i] = self.__dict__[i]
+        return requested
+
+    def reload_from_json(self, json):
+        """Reload the instance from a json"""
+        if json != {}:
+            self.first_name = json["first_name"]
+            self.last_name = json["last_name"]
+            self.age = json["age"]
