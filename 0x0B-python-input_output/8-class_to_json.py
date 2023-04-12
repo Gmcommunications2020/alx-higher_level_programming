@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 10"""
+"""Module 8"""
 
 
 def class_to_json(obj):
